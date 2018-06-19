@@ -4,12 +4,19 @@ class CampaignsController < ApplicationController
   # GET /campaigns
   def index
     @campaigns = Campaign.includes(:keywords, :groups)
-    #render json: @campaigns
+    respond_to do |format|
+      format.html
+      format.json { render json: @campaigns, each_serializer: CampaignsSerializer }
+    end
   end
 
   # GET /campaigns/1
   def show
     @campaign
+    respond_to do |format|
+      format.html
+      format.json { render json: @campaign }
+    end
   end
 
   # POST /campaigns
