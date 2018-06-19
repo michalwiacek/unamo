@@ -1,0 +1,40 @@
+<div class="container">
+  <div>
+  
+  </div>
+  <table class="table">
+   <thead>
+      <tr>
+        <th>Keyword</th>
+        <th>Best ranking</th>
+        <th class="table__date">Date of occurrence</th>
+        <th>Worst ranking</th>
+        <th class="table__date">Date of occurrence</th>
+        <th>Mean ranking</th>
+        <th>Groups</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @campaign.keywords.each do |keyword| %>
+    <tr>
+      <td><%= keyword.name %></td>
+      <td><%= keyword.positions.order(:occurrences).first.occurrences %></td>
+      <td class="table__date">
+        <% fdate = keyword.positions.order(:occurrences).first.date %>
+        <%= Date.parse(fdate).strftime("%B %d, %Y") %></td>
+      <td><%= keyword.positions.order(:occurrences).last.occurrences %></td>
+      <td class="table__date">
+        <% ldate = keyword.positions.order(:occurrences).last.date %>
+        <%= Date.parse(fdate).to_formatted_s(:long) %>
+      </td>
+      <td><%= keyword.positions.average(:occurrences) %></td>
+      <td>
+        <% keyword.groups.each do |g| %>
+          <span><%= g.name %> </span>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

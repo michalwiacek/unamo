@@ -1,0 +1,19 @@
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Campaign</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @campaigns.each do |campaign| %>
+      <tr>
+      <td> <%= campaign.id %> </td>
+      <td> <%= campaign.name %> </td>
+      <td> <%= campaign.title %> </td>
+      <td> <%= campaign.active %> </td>
+      <td> <%= link_to 'Show', campaign, class: "btn" %> </td>
+      <% end %>
