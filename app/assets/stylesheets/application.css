@@ -3,7 +3,7 @@
   margin: 3rem;
 }
 table.table {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: Lato, sans-serif;
   border: 1px solid #F0F0F0;
   background-color: white;
   width: 100%;
@@ -42,4 +42,17 @@ table.table thead th {
 }
 table.table thead th:first-child {
   border-left: none;
+}
+.btn {
+  padding: 5px;
+  border: 1px solid green;
+  border-radius: 5px;
+  color: green;
+}
+.btn:hover {
+  color: greenyellow;
+  background: green;
+}
+a:link {
+  text-decoration: none;
 }
